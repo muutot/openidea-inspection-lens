@@ -4,7 +4,12 @@ Draws each diagnostic at the end of the line it belongs to, coloured by
 severity, with a native hover tooltip — the way JetBrains' Inspection Lens and
 VS Code's Error Lens do it.
 
-![Line-end annotations between the code and the inline blame](https://raw.githubusercontent.com/muutot/openidea/pr-assets/3103/lens-editor.png)
+![Typos drawn at the end of their lines in demo/app.py](docs/lens-editor.png)
+
+Open [`demo/`](demo) to see it: a throwaway project whose file carries
+deliberate misspellings, so the Typo inspection reports them and the lens draws
+them at the end of each line. Nothing in the screenshots comes from a real
+project.
 
 ## Install
 
@@ -31,6 +36,8 @@ under Settings › Plugins › Inspection Lens, one level, with no nested folder
   Refresh_ command (Search Everywhere).
 
 ## Settings
+
+![The plugin's settings page, with a style sample per severity](docs/settings-severities.png)
 
 The page mirrors PyCharm's Inspection Lens: Appearance / Behavior / Shown
 Severities.
