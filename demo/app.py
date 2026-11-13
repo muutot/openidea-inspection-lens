@@ -1,24 +1,21 @@
-"""Invoice totals for a small shop — a demo for the Inspection Lens plugin.
+"""Every style the lens draws, one situation per line."""
 
-Every misspelled word below is on purpose: they are what the lens renders.
-"""
-
-from decimal import Decimal
+import os
+import sys
 
 
-def total(prices, discount):
-    # Recieve the prices as strings and turn them into Decimals.
-    ammount = Decimal("0")
-    for price in prices:
-        ammount += Decimal(price)
-    # A discount is occured once per invoice.
-    return ammount - Decimal(discount)
+class badName:
+    pass
 
 
-def main():
-    prices = ["19.99", "5.00", "12.50"]
-    print(total(prices, "2.00"))
+def report(rows, extra=[]):
+    # recieve every row and print it with the label
+    for row in rows:
+        print(row, label, undefined_name)
+    return rows
 
 
-if __name__ == "__main__":
-    main()
+def publish(rows):
+    unused_variable = 1
+    sys.stdout.write(str(rows))
+    return report(rows)

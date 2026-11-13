@@ -4,36 +4,43 @@ Draws each diagnostic at the end of the line it belongs to, coloured by
 severity, with a native hover tooltip — the way JetBrains' Inspection Lens and
 VS Code's Error Lens do it.
 
-![Typos drawn at the end of their lines in demo/app.py](docs/lens-editor.png)
+![Every style in demo/app.py: an unused import (weak), a class name that breaks the convention (style suggestion), a mutable default argument (warning), a misspelt word (typo) and an undefined name (error), each with its own colour](docs/styles.png)
 
-Open [`demo/`](demo) to see it: a throwaway project whose file carries
-deliberate misspellings, so the Typo inspection reports them and the lens draws
-them at the end of each line. Nothing in the screenshots comes from a real
-project.
+Everything in the screenshots comes from [`demo/`](demo) — a throwaway project
+whose problems are deliberate. Open it to see the same thing:
 
-## Install
+```sh
+git clone https://github.com/muutot/openidea-inspection-lens
+# Settings › Plugins › Install Plugin from Disk… and pick the clone,
+# then open the clone's demo/ folder.
+```
 
-Settings › Plugins › Install Plugin from Disk… and pick this folder (it needs
-`plugin.toml` and `dist/plugin.wasm`), or install the released package from the
-marketplace once it is listed.
+## What it draws
 
-Grants: `project.read`, `events`, `storage` — all low risk. The page appears
-under Settings › Plugins › Inspection Lens, one level, with no nested folder.
+One annotation per line, at the end of the code: the first message, then
+`· +N more` when the line has more. The hover carries every message (or the
+full one, with tool, rule id and related locations, depending on the hover
+mode). The host renders it out of flow, so it neither stretches the line nor
+moves the caret, and it sits after the git hint and before the inline blame.
 
-## What it does
+| Style | Category | What produces it in the demo |
+| --- | --- | --- |
+| `error` | Errors, Syntax errors, Server problems | `print(row, label, undefined_name)` — the Python server finds no `label` |
+| `warning` | Warnings | `def report(rows, extra=[])` — ruff `B006`, a mutable default |
+| `weak` | Weak warnings (`unnecessary`, `deprecated`) | `import os`, `unused_variable = 1` — ruff `F401` / `F841` |
+| `info` | Information, Style, Debugger, Agent | `class badName` — ruff `N801`, a naming convention |
+| `typo` | Typos | the comment in `app.py`, `notes.md` — the Spelling inspection |
+| `muted` | Other, and every annotation with **Use editor font** off | the second screenshot below |
 
-- Reads the host's diagnostics snapshot (`host::problems(None)`), one entry per
-  file and producer: language servers, builds, spelling and other plugins.
-- Groups them by line and draws one annotation per line: the first message, then
-  `· +N more`; the hover carries every message (or the full one with tool/rule/
-  location, depending on the hover mode).
-- Places the text at the line end in the editor's UTF-16 columns, so it lands
-  after the code even on wrapped lines. The host renders it out of flow: it does
-  not stretch the line, and it steps past the git hint and before the inline
-  blame.
-- Refreshes on `file-opened`, `file-saved`, `editor-focused`, `file-closed`,
-  `settings-changed` and `problems-changed`, and on the _Inspection Lens:
-  Refresh_ command (Search Everywhere).
+The colours are the Color Scheme attributes of the same kind (Settings › Editor
+› Color Scheme › General › Errors and Warnings: Error, Warning, Weak warning,
+Typo), so recolouring there recolours both the code and its annotation.
+
+![The same file with Use editor font off: every annotation is muted](docs/styles-muted.png)
+
+It also shows the two ways a line-end chain is laid out: the `no usages` /
+`1 usage` hints from the IDE's code vision come first, then the annotation, and
+the git blame follows when the file is in a repository.
 
 ## Settings
 
@@ -48,11 +55,6 @@ Severities.
 | Appearance       | Max description length | Truncate long messages with an ellipsis (0 = unlimited).                                                                |
 | Behavior         | Hover mode             | `Disabled`, or one of PyCharm's two click modes: the tooltip with tool, rule id and related locations, or the message alone. |
 | Shown Severities | 11 categories          | Agent / Errors / Warnings / Debugger suggestions / Information / Weak warnings / Server problems / Syntax errors / Typos / Style suggestions / Other — one category per diagnostic, with an example in its own style. |
-
-The text takes its colour from the Color Scheme attributes of the same kind
-(Settings › Editor › Color Scheme › General › Errors and Warnings), so editing
-Error, Warning, Weak warning or Typo there recolours both the code and its
-annotation.
 
 ## Limitations
 
