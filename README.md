@@ -54,9 +54,11 @@ annotation.
   switches between severity colours and muted text.
 - Plugins cannot write their own settings, so the page's Reset discards staged
   edits only.
-- `problems-changed` needs OpenIDEA with the host-owned diagnostics snapshot
-  (plugin API 1.7 runtime, link below). On an older build the other events and
-  _Refresh_ still work.
+- Needs plugin API 1.8 (`engines.openidea = "^1.8"`): the `problems-changed`
+  event and the host-owned diagnostics snapshot it reads. The 1.8 release is
+  [l0ng-ai/openidea#3103](https://github.com/l0ng-ai/openidea/pull/3103); the
+  0.1.0 package was built before it shipped and installs only on a build that
+  carries it.
 - Remote projects: plugins see the Problems snapshot of the machine they run on.
 
 ## Build

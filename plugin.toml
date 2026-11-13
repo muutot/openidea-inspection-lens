@@ -6,7 +6,7 @@ authors = ["Muu"]
 license = "Apache-2.0"
 change-notes = "0.1.0 — first release: inline diagnostics from the Problems view, with appearance, hover and severity settings."
 categories = ["tools"]
-engines.openidea = "^1.6"
+engines.openidea = "^1.8"
 wasm = "dist/plugin.wasm"
 activation = [
   "on-startup-finished",
