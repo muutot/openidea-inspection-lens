@@ -1,0 +1,148 @@
+{
+  "properties": {
+    "useEditorFont": {
+      "type": "boolean",
+      "title": "Use editor font",
+      "description": "Draw inline messages with the editor font and severity colours. Turning this off draws them muted, closer to the surrounding text; OpenIDEA renders annotations with the editor font either way.",
+      "group": "Appearance",
+      "default": true
+    },
+    "maxDescriptionLength": {
+      "type": "integer",
+      "title": "Max description length",
+      "description": "Longest inline message in characters, per diagnostic. Zero means no limit.",
+      "group": "Appearance",
+      "default": 120
+    },
+    "hoverMode": {
+      "type": "string",
+      "title": "Hover mode",
+      "description": "What a hover over an annotation shows. Plugin annotations cannot bind click intents in OpenIDEA, so the two click modes differ in the tooltip detail: the first shows the message with its tool, rule id and related locations, the second the message alone.",
+      "group": "Behavior",
+      "enum": [
+        "Disabled",
+        "Left click shows intentions, middle click jumps to highlight",
+        "Left click jumps to highlight, middle click shows intentions"
+      ],
+      "default": "Left click shows intentions, middle click jumps to highlight"
+    },
+    "showAgent": {
+      "type": "boolean",
+      "title": "Agent",
+      "description": "Problems suggested by an AI agent. OpenIDEA reports none yet; the switch is kept for parity with PyCharm.",
+      "group": "Shown Severities",
+      "default": true,
+      "example": {
+        "text": "Suggestion from an AI agent",
+        "style": "muted"
+      }
+    },
+    "showErrors": {
+      "type": "boolean",
+      "title": "Errors",
+      "group": "Shown Severities",
+      "default": true,
+      "example": {
+        "text": "\"totl\" is not defined.",
+        "style": "error"
+      }
+    },
+    "showWarnings": {
+      "type": "boolean",
+      "title": "Warnings",
+      "group": "Shown Severities",
+      "default": true,
+      "example": {
+        "text": "parameter \"name\" value is not used.",
+        "style": "warning"
+      }
+    },
+    "showDebuggerSuggestions": {
+      "type": "boolean",
+      "title": "Debugger suggestions",
+      "description": "Problems the debugger reports. OpenIDEA reports none yet; the switch is kept for parity with PyCharm.",
+      "group": "Shown Severities",
+      "default": true,
+      "example": {
+        "text": "Value of x is available at the breakpoint",
+        "style": "info"
+      }
+    },
+    "showInformation": {
+      "type": "boolean",
+      "title": "Information",
+      "group": "Shown Severities",
+      "default": true,
+      "example": {
+        "text": "Import \"os\" is not accessed.",
+        "style": "info"
+      }
+    },
+    "showWeakWarnings": {
+      "type": "boolean",
+      "title": "Weak warnings",
+      "description": "Unnecessary or deprecated code.",
+      "group": "Shown Severities",
+      "default": true,
+      "example": {
+        "text": "unused import",
+        "style": "weak"
+      }
+    },
+    "showServerProblems": {
+      "type": "boolean",
+      "title": "Server problems",
+      "description": "Problems the language server reports about itself, such as a crash or a failed request.",
+      "group": "Shown Severities",
+      "default": true,
+      "example": {
+        "text": "language server crashed",
+        "style": "error"
+      }
+    },
+    "showSyntaxErrors": {
+      "type": "boolean",
+      "title": "Syntax errors",
+      "description": "Parse errors.",
+      "group": "Shown Severities",
+      "default": true,
+      "example": {
+        "text": "Expected expression",
+        "style": "error"
+      }
+    },
+    "showTypos": {
+      "type": "boolean",
+      "title": "Typos",
+      "description": "Spelling and grammar problems.",
+      "group": "Shown Severities",
+      "default": true,
+      "example": {
+        "text": "Typo: In word 'remot'.",
+        "style": "typo"
+      }
+    },
+    "showStyleSuggestions": {
+      "type": "boolean",
+      "title": "Style suggestions",
+      "description": "Style and convention problems.",
+      "group": "Shown Severities",
+      "default": true,
+      "example": {
+        "text": "Unused import (style)",
+        "style": "weak"
+      }
+    },
+    "showOther": {
+      "type": "boolean",
+      "title": "Other",
+      "description": "Hints and problems no other severity covers.",
+      "group": "Shown Severities",
+      "default": true,
+      "example": {
+        "text": "Hints and notes",
+        "style": "muted"
+      }
+    }
+  }
+}
