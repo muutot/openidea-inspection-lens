@@ -1,10 +1,10 @@
 id = "muutot.inspection-lens"
 name = "Inspection Lens"
-version = "0.1.0"
+version = "0.1.1"
 description = "Displays errors, warnings and other inspections inline at the end of the line, the way Inspection Lens / Error Lens does."
 authors = ["Muu"]
 license = "Apache-2.0"
-change-notes = "0.1.0 — first release: inline diagnostics from the Problems view, with appearance, hover and severity settings."
+change-notes = "0.1.1 — rebuilt against OpenIDEA v0.1.45 (plugin API 1.8), declaring the ^1.8 engine that problems-changed requires. 0.1.0 — first release: inline diagnostics from the Problems view, with appearance, hover and severity settings."
 categories = ["tools"]
 engines.openidea = "^1.8"
 wasm = "dist/plugin.wasm"

@@ -97,7 +97,7 @@ checksum = "cf8baf1c55e62ffcace7a9f06f4bd9cd3f0c4beb022d3b367256b91b87513d98"
 [[package]]
 name = "openidea-plugin"
 version = "0.1.0"
-source = "git+https://github.com/l0ng-ai/openidea?tag=v0.1.44#bf36cc08019a1be78c151245c67dcd872a9c37b5"
+source = "git+https://github.com/l0ng-ai/openidea?tag=v0.1.45#c5be2998ec7190567c9da8a6f375aeda4becad2e"
 dependencies = [
  "serde",
  "serde_json",
@@ -106,7 +106,7 @@ dependencies = [
 
 [[package]]
 name = "openidea-plugin-muutot-inspection-lens"
-version = "0.1.0"
+version = "0.1.1"
 dependencies = [
  "openidea-plugin",
  "serde_json",

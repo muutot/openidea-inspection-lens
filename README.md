@@ -64,10 +64,10 @@ Severities.
 - Plugins cannot write their own settings, so the page's Reset discards staged
   edits only.
 - Needs plugin API 1.8 (`engines.openidea = "^1.8"`): the `problems-changed`
-  event and the host-owned diagnostics snapshot it reads. The 1.8 release is
-  [l0ng-ai/openidea#3103](https://github.com/l0ng-ai/openidea/pull/3103); the
-  0.1.0 package was built before it shipped and installs only on a build that
-  carries it.
+  event and the host-owned diagnostics snapshot it reads. That API ships in
+  [OpenIDEA v0.1.45](https://github.com/l0ng-ai/openidea/releases/tag/v0.1.45)
+  ([l0ng-ai/openidea#3103](https://github.com/l0ng-ai/openidea/pull/3103));
+  version 0.1.1 is rebuilt against that release's SDK.
 - Remote projects: plugins see the Problems snapshot of the machine they run on.
 
 ## Build
@@ -82,7 +82,7 @@ https://github.com/l0ng-ai/openidea ide-host --bin openidea-plugin` builds it
 from source.
 
 The component is compiled against the released SDK tag in `Cargo.toml`
-(`openidea-plugin = { git = "…", tag = "v0.1.44" }`).
+(`openidea-plugin = { git = "…", tag = "v0.1.45" }`).
 
 ## Publish
 
