@@ -15,6 +15,12 @@ git clone https://github.com/muutot/openidea-inspection-lens
 # then open the clone's demo/ folder.
 ```
 
+Version 0.1.2 declares `require-restart = true`, so the Plugins page offers a
+**Restart IDE** button right after installation — restart once and the inline
+annotations appear without a manual refresh. This needs an IDE release that
+carries the `require-restart` manifest field (API 1.8); OpenIDEA v0.1.45 and
+earlier reject the package at validation time.
+
 ## What it draws
 
 One annotation per line, at the end of the code: the first message, then
